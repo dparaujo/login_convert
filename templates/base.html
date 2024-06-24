@@ -1,0 +1,50 @@
+<!-- templates/base.html -->
+<!doctype html>
+
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <title>{% block 'titulo'%}{% endblock %}</title>
+    {% block 'head' %}{% endblock %}
+  </head>
+  <body>
+
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'home' %}">&nbsp&nbspSuper Lógica</a>
+        <a type="button" class="btn btn-info" name="admin", title="Admin", href="{% url 'admin:index' %}">
+            <i class="fa fa-google" >&nbsp&nbspAdmin</i>
+        </a>
+        <a type="button" class="btn btn-info" name="convert", title="Convert", href="{% url 'upload_file' %}">
+            <i class="fa fa-google" >&nbsp&nbspConverter Arquivo</i>
+        </a>
+
+        <div class="">
+            <a class="navbar-brand" href="#">
+                {% block content %}
+                {% if user.is_authenticated %}
+                    Olá, {{ user.username }}!
+                    <a type="button" class="btn btn-info" name="Deslogar" title="Deslogar" href="{% url 'logout' %}">
+                        <i class="fa fa-google">Logout</i>
+                    </a>
+                {% else %}
+                    <p>Você não está logado!</p>
+                    <a type="button" class="btn btn-info" name="Logar" title="Logar" href="{% url 'login' %}">
+                        <i class="fa fa-google" >Login</i>
+                    </a>
+                {% endif %}
+                {% endblock %}
+            </a>
+        </div>
+    </nav>
+
+    {% load socialaccount %}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" ></script>
+
+    {% block 'body'%}{% endblock %}
+      
+  </body>
+</html>
