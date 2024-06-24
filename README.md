@@ -1,0 +1,1 @@
+* Projeto implementado utilizando Django 4.2 para realizar login com conta de e-mail Google. No projeto contém uma função para realizar a conversão de uma planilha no formato .CSV em outro arquivo também no formato CSV utilizando a biblioteca Pandas.
