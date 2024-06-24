@@ -2,3 +2,4 @@
 * Referências
   - https://docs.djangoproject.com/en/4.2/
   - https://docs.allauth.org/en/latest/introduction/index.html
+  - https://pandas.pydata.org/docs/development/index.html
